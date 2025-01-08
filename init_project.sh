@@ -20,6 +20,10 @@ sed -i "s/your_project_name/$PROJECT_NAME/g" setup.py
 sed -i "s/yourusername/yourusername/g" setup.py
 sed -i "s/youremail@example.com/youremail@example.com/g" setup.py
 
+# Add a sample test
+echo "def test_example():
+    assert True" > tests/test_basic.py
+
 # Set up virtual environment
 python -m venv .venv
 source .venv/bin/activate
