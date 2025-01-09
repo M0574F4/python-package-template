@@ -16,11 +16,6 @@ sed -i "s/your_project_name/$PROJECT_NAME/g" setup.py
 sed -i "s/Your Name/$AUTHOR_NAME/g" setup.py
 sed -i "s/youremail@example.com/$AUTHOR_EMAIL/g" setup.py
 
-# Add a sample test if it doesn't exist
-if [ ! -s tests/test_basic.py ]; then
-  echo "def test_example():" > tests/test_basic.py
-  echo "    assert True" >> tests/test_basic.py
-fi
 
 # Set up virtual environment
 python -m venv .venv
