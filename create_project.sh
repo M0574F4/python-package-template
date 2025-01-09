@@ -4,17 +4,15 @@
 PROJECT_NAME=$1
 AUTHOR_NAME=$2
 AUTHOR_EMAIL=$3
-GITHUB_REPO_URL=$4
 
 # Check if all arguments are provided
-if [ -z "$PROJECT_NAME" ] || [ -z "$AUTHOR_NAME" ] || [ -z "$AUTHOR_EMAIL" ] || [ -z "$GITHUB_REPO_URL" ]; then
-  echo "Usage: ./create_project.sh <project_name> <author_name> <author_email> <github_repo_url>"
+if [ -z "$PROJECT_NAME" ] || [ -z "$AUTHOR_NAME" ] || [ -z "$AUTHOR_EMAIL" ]; then
+  echo "Usage: ./create_project.sh <project_name> <author_name> <author_email>"
   exit 1
 fi
 
 # Template repository URL
 TEMPLATE_REPO="https://github.com/m0574f4/python-package-template.git"
-
 
 # Clone the template repository into the new project directory without git history
 git clone --depth 1 $TEMPLATE_REPO "$PROJECT_NAME"
@@ -47,14 +45,5 @@ git add .
 # Commit the initial commit
 git commit -m "Initial commit"
 
-# Add remote origin
-git remote add origin "$GITHUB_REPO_URL"
-
-# Set the main branch
-git branch -M main
-
-# Push to GitHub
-git push -u origin main
-
 # Output success message
-echo "Project $PROJECT_NAME created and pushed to GitHub successfully."
+echo "Project $PROJECT_NAME created and initialized successfully."
