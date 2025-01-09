@@ -20,8 +20,6 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 
 ### Create a New Project
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 1. Clone this repository:
    git clone https://github.com/m0574f4/python-package-template.git
 
@@ -137,12 +135,10 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
    echo "Project $PROJECT_NAME created and initialized successfully."
    ```
 
->>>>>>> 5f22b390a032039995b7d4978cccf1bf864dda0f
 2. Run the script with the following command:
    ```bash
    ./create_project.sh <project_name> <author_name> <author_email>
    ```
->>>>>>> 5f22b390a032039995b7d4978cccf1bf864dda0f
 
    Example:
    ./create_project.sh MyProject "John Doe" "john.doe@example.com" "johndoe"
@@ -170,8 +166,6 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 
 3. Start coding!
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ### Remote Repository
 
 The script automatically sets up a remote repository based on your GitHub username and project name. After running the script, your repository will be pushed to:
@@ -179,10 +173,6 @@ https://github.com/<github_username>/<project_name>.git
 
 No additional manual steps are needed to link the remote repository.
 
-=======
->>>>>>> 5f22b390a032039995b7d4978cccf1bf864dda0f
-=======
->>>>>>> 5f22b390a032039995b7d4978cccf1bf864dda0f
 ## Contributing
 
 Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
