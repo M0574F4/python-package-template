@@ -15,6 +15,7 @@ fi
 sed -i "s/your_project_name/$PROJECT_NAME/g" setup.py
 sed -i "s/Your Name/$AUTHOR_NAME/g" setup.py
 sed -i "s/youremail@example.com/$AUTHOR_EMAIL/g" setup.py
+mkdir -p src/"$PROJECT_NAME"
 
 
 # Set up virtual environment
