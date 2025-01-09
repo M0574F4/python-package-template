@@ -19,7 +19,7 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 - Git installed on your system.
 
 ### Create a New Project
-1. Create a new repository in your Github named <project_name>.
+1. Create a new repository in your Github named `project_name`.
 
 2. Create a bash script named `create_project.sh` with the following content:
 
