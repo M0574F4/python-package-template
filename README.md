@@ -19,131 +19,81 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 - Git installed on your system.
 
 ### Create a New Project
+1. Create a new repository in your Github named <project_name>.
 
-1. Clone this repository:
-   git clone https://github.com/m0574f4/python-package-template.git
+2. Create a bash script named `create_project.sh` with the following content:
 
-2. Run the `create_project.sh` script to initialize your project:
+   ```bash
+   #!/bin/bash
+
+# Variables
+PROJECT_NAME=$1
+AUTHOR_NAME=$2
+AUTHOR_EMAIL=$3
+GITHUB_USERNAME=$4
+
+# Check if all arguments are provided
+if [ -z "$PROJECT_NAME" ] || [ -z "$AUTHOR_NAME" ] || [ -z "$AUTHOR_EMAIL" ] || [ -z "$GITHUB_USERNAME" ]; then
+  echo "Usage: ./create_project.sh <project_name> <author_name> <author_email> <github_username>"
+  exit 1
+fi
+
+# Template repository URL
+TEMPLATE_REPO="https://github.com/m0574f4/python-package-template.git"
+
+# Clone the template repository into the new project directory without git history
+git clone --depth 1 "$TEMPLATE_REPO" "$PROJECT_NAME"
+
+# Check if cloning was successful
+if [ $? -ne 0 ]; then
+  echo "Failed to clone the template repository."
+  exit 1
+fi
+
+# Remove the .git directory to detach from the template repo
+rm -rf "$PROJECT_NAME/.git"
+
+# Navigate into the new project directory
+cd "$PROJECT_NAME" || { echo "Failed to navigate to project directory"; exit 1; }
+
+# Run the initialization script from the template
+if [ -f ./init_project.sh ]; then
+  ./init_project.sh "$PROJECT_NAME" "$AUTHOR_NAME" "$AUTHOR_EMAIL"
+else
+  echo "Initialization script not found. Skipping..."
+fi
+
+# Initialize a new git repository
+git init
+
+# Configure Git user information
+git config user.email "$AUTHOR_EMAIL"
+git config user.name "$AUTHOR_NAME"
+
+# Add all files to the repository
+git add .
+
+# Commit the initial commit
+git commit -m "Initial commit"
+
+# Construct the remote repository URL using the GitHub username and project name
+REMOTE_URL="https://github.com/$GITHUB_USERNAME/$PROJECT_NAME.git"
+
+# Add the remote repository
+git remote add origin "$REMOTE_URL"
+
+# Push to the remote repository
+git branch -M main
+git push -u origin main
+
+# Output success message
+echo "Project $PROJECT_NAME created and initialized successfully and pushed to $REMOTE_URL."
+
+   ```
+
+Run the `create_project.sh` script to initialize your project:
    ./create_project.sh <project_name> <author_name> <author_email> <github_username>
-=======
-1. Create a bash script named `create_project.sh` with the following content:
-
-   ```bash
-   #!/bin/bash
-
-   # Variables
-   PROJECT_NAME=$1
-   AUTHOR_NAME=$2
-   AUTHOR_EMAIL=$3
-
-   # Check if all arguments are provided
-   if [ -z "$PROJECT_NAME" ] || [ -z "$AUTHOR_NAME" ] || [ -z "$AUTHOR_EMAIL" ]; then
-     echo "Usage: ./create_project.sh <project_name> <author_name> <author_email>"
-     exit 1
-   fi
-
-   # Template repository URL
-   TEMPLATE_REPO="https://github.com/m0574f4/python-package-template.git"
-
-   # Clone the template repository into the new project directory without git history
-   git clone --depth 1 $TEMPLATE_REPO "$PROJECT_NAME"
-
-   # Check if cloning was successful
-   if [ $? -ne 0 ]; then
-     echo "Failed to clone the template repository."
-     exit 1
-   fi
-
-   # Remove the .git directory to detach from the template repo
-   rm -rf "$PROJECT_NAME/.git"
-
-   # Navigate into the new project directory
-   cd "$PROJECT_NAME" || { echo "Failed to navigate to project directory"; exit 1; }
-
-   # Run the initialization script from the template
-   ./init_project.sh "$PROJECT_NAME" "$AUTHOR_NAME" "$AUTHOR_EMAIL"
-
-   # Initialize a new git repository
-   git init
-
-   # Configure Git user information
-   git config user.email "$AUTHOR_EMAIL"
-   git config user.name "$AUTHOR_NAME"
-
-   # Add all files to the repository
-   git add .
-
-   # Commit the initial commit
-   git commit -m "Initial commit"
-
-   # Output success message
-   echo "Project $PROJECT_NAME created and initialized successfully."
-   ```
-
-=======
-1. Create a bash script named `create_project.sh` with the following content:
-
-   ```bash
-   #!/bin/bash
-
-   # Variables
-   PROJECT_NAME=$1
-   AUTHOR_NAME=$2
-   AUTHOR_EMAIL=$3
-
-   # Check if all arguments are provided
-   if [ -z "$PROJECT_NAME" ] || [ -z "$AUTHOR_NAME" ] || [ -z "$AUTHOR_EMAIL" ]; then
-     echo "Usage: ./create_project.sh <project_name> <author_name> <author_email>"
-     exit 1
-   fi
-
-   # Template repository URL
-   TEMPLATE_REPO="https://github.com/m0574f4/python-package-template.git"
-
-   # Clone the template repository into the new project directory without git history
-   git clone --depth 1 $TEMPLATE_REPO "$PROJECT_NAME"
-
-   # Check if cloning was successful
-   if [ $? -ne 0 ]; then
-     echo "Failed to clone the template repository."
-     exit 1
-   fi
-
-   # Remove the .git directory to detach from the template repo
-   rm -rf "$PROJECT_NAME/.git"
-
-   # Navigate into the new project directory
-   cd "$PROJECT_NAME" || { echo "Failed to navigate to project directory"; exit 1; }
-
-   # Run the initialization script from the template
-   ./init_project.sh "$PROJECT_NAME" "$AUTHOR_NAME" "$AUTHOR_EMAIL"
-
-   # Initialize a new git repository
-   git init
-
-   # Configure Git user information
-   git config user.email "$AUTHOR_EMAIL"
-   git config user.name "$AUTHOR_NAME"
-
-   # Add all files to the repository
-   git add .
-
-   # Commit the initial commit
-   git commit -m "Initial commit"
-
-   # Output success message
-   echo "Project $PROJECT_NAME created and initialized successfully."
-   ```
-
-2. Run the script with the following command:
-   ```bash
-   ./create_project.sh <project_name> <author_name> <author_email>
-   ```
-
-   Example:
-   ./create_project.sh MyProject "John Doe" "john.doe@example.com" "johndoe"
-
-3. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
+2. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
 
 ### What's Included
 
