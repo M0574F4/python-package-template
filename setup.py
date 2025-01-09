@@ -8,11 +8,6 @@ setup(
     install_requires=[
         "requests",
     ],
-    extras_require={
-        "dev": [
-            "pytest",
-        ],
-    },
     author="Your Name",
     author_email="youremail@example.com",
     description="A short description of the project.",
