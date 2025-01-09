@@ -6,7 +6,6 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 
 - Pre-configured setup for packaging and distribution.
 - Includes CI/CD workflows with GitHub Actions.
-- Ready-to-use testing framework.
 - Standard Python files: `setup.py`, `pyproject.toml`, `LICENSE`, and more.
 - Modular structure to organize your source code and notebooks.
 - Easy initialization with the `create_project.sh` script.
@@ -21,7 +20,7 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 ### Create a New Project
 1. Create a new repository in your Github named `project_name`.
 
-2. Create a bash script named `create_project.sh` with the following content:
+2. Create a bash script named `create_project.sh` with the following content in your local machine:
 
    ```bash
    #!/bin/bash
@@ -91,15 +90,15 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 
    ```
 
-Run the `create_project.sh` script to initialize your project:
+2. Run the `create_project.sh` script to initialize your project:
+```bash
    ./create_project.sh <project_name> <author_name> <author_email> <github_username>
-2. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
+3. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
 
 ### What's Included
 
 - **`src/`**: Main source code folder for your package.
 - **`notebooks/`**: Directory for Jupyter notebooks.
-- **`tests/`**: Preconfigured testing folder with `pytest`.
 - **`setup.py`** and **`pyproject.toml`**: Files for packaging and dependencies.
 - **`.github/workflows/`**: Ready-to-use CI/CD workflows.
 - **README.md**: A template for your project documentation.
