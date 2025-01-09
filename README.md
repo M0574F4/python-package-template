@@ -21,21 +21,15 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 ### Create a New Project
 
 1. Clone this repository:
-   ```bash
    git clone https://github.com/m0574f4/python-package-template.git
-   ```
 
 2. Run the `create_project.sh` script to initialize your project:
-   ```bash
-   ./create_project.sh <project_name> <author_name> <author_email>
-   ```
+   ./create_project.sh <project_name> <author_name> <author_email> <github_username>
 
    Example:
-   ```bash
-   ./create_project.sh MyProject "John Doe" "john.doe@example.com"
-   ```
+   ./create_project.sh MyProject "John Doe" "john.doe@example.com" "johndoe"
 
-3. Your new project will be created in the `<project_name>` directory.
+3. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
 
 ### What's Included
 
@@ -49,32 +43,21 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 ### Local Development
 
 1. Navigate to your project directory:
-   ```bash
    cd <project_name>
-   ```
 
 2. Create a virtual environment and install dependencies:
-   ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\\Scripts\\activate
    pip install -r requirements.txt
-   ```
 
 3. Start coding!
 
-### Adding Remote Repository
+### Remote Repository
 
-If you want to add and push to a remote repository, follow these steps manually:
+The script automatically sets up a remote repository based on your GitHub username and project name. After running the script, your repository will be pushed to:
+https://github.com/<github_username>/<project_name>.git
 
-1. Initialize a new GitHub repository.
-2. Add the remote repository to your local project:
-   ```bash
-   git remote add origin <your_github_repo_url>
-   ```
-3. Push your changes:
-   ```bash
-   git push -u origin main
-   ```
+No additional manual steps are needed to link the remote repository.
 
 ## Contributing
 
