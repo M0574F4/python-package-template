@@ -93,6 +93,7 @@ A boilerplate for creating Python packages quickly and efficiently. This templat
 2. Run the `create_project.sh` script to initialize your project:
 ```bash
    ./create_project.sh <project_name> <author_name> <author_email> <github_username>
+   ```
 3. Your new project will be created in the `<project_name>` directory, initialized with a new Git repository, and pushed to `https://github.com/<github_username>/<project_name>.git`.
 
 ### What's Included
