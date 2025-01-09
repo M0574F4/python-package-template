@@ -30,15 +30,4 @@ source .venv/bin/activate
 pip install pipenv
 pipenv install --dev
 
-# Initialize Git if not already initialized
-if [ ! -d ".git" ]; then
-  git init
-  git config user.email "$AUTHOR_EMAIL"
-  git config user.name "$AUTHOR_NAME"
-fi
-
-# Add and commit changes
-git add .
-git commit -m "Initial commit"
-
 echo "Project $PROJECT_NAME initialized successfully."
