@@ -25,5 +25,5 @@ source .venv/bin/activate
 # Install dependencies
 pip install pipenv
 pipenv install --dev
-
+pip install -e .
 echo "Project $PROJECT_NAME initialized successfully."
